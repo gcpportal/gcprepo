@@ -17,7 +17,7 @@ from util import unique_projectid
 from send_mail import create_message
 from send_mail import send_message 
 from send_mail import sendmailSMTP
-import ndb
+from google.appengine.ext import ndb
 
 
 class HelloWebapp2(webapp2.RequestHandler):
