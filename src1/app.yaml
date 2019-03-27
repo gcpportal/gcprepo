@@ -1,0 +1,42 @@
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+
+handlers:
+- url: /.*
+  script: main.app
+
+- url: /(.+)
+ static_files: dist/\1
+ upload: dist/(.*)
+
+- url: /
+ static_files: dist/index.html
+ upload: dist/index.html
+
+# Temporary setting to keep gcloud from uploading not required files for 
+deployment
+skip_files:
+- ^node_modules$
+- ^app\.yaml
+- ^README\..*
+- \.gitignore
+- ^\.git$
+- ^grunt\.js
+- ^src$
+- ^e2e$
+- \.editorconfig
+- ^karma\.config\.js
+- ^package\.json
+- ^protractor\.conf\.js
+- ^tslint\.json
+ 
+builtins:
+- deferred: on
+- remote_api: on
+
+libraries:
+- name: ssl
+  version: latest
