@@ -4,7 +4,7 @@ Created on Jan 22, 2019
 @author: deepashree.kurnad
 '''
 
-import ndb
+from google.appengine.ext import ndb
 
 class GCPRequest(ndb.Model):
     applicationName = ndb.StringProperty()
